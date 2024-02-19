@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我们的纪念日</title>
+
+<style type="text/css">
+@font-face {
+	font-family: RuiHeiXiTi;
+	src: url('RuiHeiXiTi.otf') format("truetype");
+}
+</style>
+
+<style type="text/css">
+    a:link,a:visited{
+        text-decoration:none;  /*超链接无下划线*/
+    }
+a:hover{
+    text-decoration:underline;  /*鼠标放上去有下划线*/
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+    
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+            <p style="font-family:RuiHeiXiTi">
+            <font size="5">
+                
+            <span class="comments"> 我挚爱的考拉： </span><br />
+            <br>
+            <br>
+            <span class="comments"> 这个页面记录着我们相知相爱的日子，</span><br />
+            <br>
+            <span class="placeholder"/><span class="comments">从2016年12月5日开始，</span><br />
+            <br>
+            <span class="comments"> 这个数字也注定会永远地延续下去，</span><br />
+            <br>
+            <span class="placeholder"/><span class="comments">爱你一生一世。</span><br />
+            </font><br />
+            
+            </p>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+                    <p style="font-family:RuiHeiXiTi">
+                    <font size="6">
+					我们在一起了
+                    </font><br />
+                    </p>
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+                    <a href="https://zhangwu.tech"><img src="gif0080.gif" border="0"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		<a href="/"></a><br />
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 50;
+var together = new Date();
+together.setFullYear(2016, 11, 5);//月份要减一
+together.setHours(0);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+
+</body>
+</html>
